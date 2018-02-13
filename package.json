@@ -1,0 +1,41 @@
+{
+  "name": "react-deploy",
+  "version": "1.0.1",
+  "description": "a deployment script for create react app  to s3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumn2u/react-deploy.git"
+  },
+  "keywords": [
+    "react",
+    "deploy",
+    "react-deploy",
+    "s3",
+    "revisions",
+    "activate"
+  ],
+  "author": "Suman Kunwar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sumn2u/react-deploy/issues"
+  },
+  "homepage": "https://github.com/sumn2u/react-deploy#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.193.0",
+    "fd-slicer": "~1.0.0",
+    "findit2": "~2.2.3",
+    "fs": "0.0.1-security",
+    "git-repo-info": "^1.3.0",
+    "graceful-fs": "~4.1.4",
+    "mime": "~1.2.11",
+    "mkdirp": "~0.5.0",
+    "pend": "~1.2.0",
+    "rimraf": "~2.2.8",
+    "rsvp": "^3.5.0",
+    "streamsink": "~1.2.0"
+  }
+}
