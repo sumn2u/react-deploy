@@ -151,7 +151,6 @@ Client.prototype.displayRevisions = function () {
     MaxKeys: 10
   }
 
-  console.log(params, 'params')
   let revisions = new RSVP.Promise((resolve, reject) => {
     let s3revisionL = []
     // console.log(s3, 's3');
@@ -161,9 +160,7 @@ Client.prototype.displayRevisions = function () {
         reject(err)
       }
       // needs to get files from s3
-      console.log('data,', data.Metadata)
       data.Contents.forEach((obj) => {
-        console.log(obj, 'obj')
         s3revisionL.push({revisionKey: obj.Key.replace(/.html/g, ''), revisionDate: obj.LastModified})
         // console.log(obj.Key, obj.LastModified, 'this is s3')
       })
@@ -207,7 +204,7 @@ Client.prototype.createRevision = function () {
     })
 
     uploadFile.then((rest) => {
-      console.log('result ==>', rest)
+      console.log(`Revision created successfuly `)
     })
   })
 }
@@ -232,8 +229,7 @@ Client.prototype.activateRevisions = function (activate) {
       }
       // needs to get files from s3
       if (data.Contents.length) {
-        let file = data.Contents[0]
-        console.log(file, 'data.Contents')
+        // let file = data.Contents[0]
         let newParams = {
           Bucket: 'lms-front-dev',
           CopySource: `lms-front-dev/${activate}.html`,
@@ -245,11 +241,9 @@ Client.prototype.activateRevisions = function (activate) {
           Key: 'index.html'
         }
 
-        console.log(newParams, 'newParams')
-
         self.s3.copyObject(newParams, (copyErr, copyData) => {
           if (copyErr) {
-            console.log(copyErr)
+          //  console.log(copyErr)
             reject(copyErr)
           } else {
                 // console.log('Copied: ', params.Key)
@@ -261,7 +255,7 @@ Client.prototype.activateRevisions = function (activate) {
   })
 // now see the promise
   revisions.then((revision) => {
-    console.log(revision, 'revision')
+    console.log(`Revison activted successfuly`)
   //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
   //  if(revision == actKey){
   //    //@TODO save and activate
@@ -486,7 +480,6 @@ Client.prototype.uploadFile = function (params) {
   function completeMultipartUpload () {
     localFileSlicer.unref()
     localFileSlicer = null
-    console.log('partssL ==>', parts)
     doWithRetry(tryCompleteMultipartUpload, self.s3RetryCount, self.s3RetryDelay, function (err, data) {
       if (fatalError) return
       if (err) return handleError(err)
@@ -509,7 +502,6 @@ Client.prototype.uploadFile = function (params) {
           Parts: parts
         }
       }
-      console.log('parts ==>', parts)
       self.s3.completeMultipartUpload(s3Params, function (err, data) {
         pendCb()
         if (fatalError) return
