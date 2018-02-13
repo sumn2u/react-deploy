@@ -9,13 +9,13 @@ let path = require('path')
 // let crypto = require('crypto')
 let mkdirp = require('mkdirp')
 let assert = require('assert')
-let MultipartETag = require('./multipart_etag')
+let MultipartETag = require('./lib/multipart_etag')
 let fdSlicer = require('fd-slicer')
 let mime = require('mime')
 let StreamSink = require('streamsink')
 let PassThrough = require('stream').PassThrough
-let ScmTable = require('./scm-table')
-const generate = require('./git-commit')
+let ScmTable = require('./lib/scm-table')
+const generate = require('./lib/git-commit')
 const RSVP = require('rsvp')
 
 let MAX_PUTOBJECT_SIZE = 5 * 1024 * 1024 * 1024
