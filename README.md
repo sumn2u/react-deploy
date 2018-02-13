@@ -2,12 +2,12 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/issues) [![GitHub forks](https://img.shields.io/github/forks/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/network) [![GitHub stars](https://img.shields.io/github/stars/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/stargazers) [![GitHub license](https://img.shields.io/github/license/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/blob/master/LICENSE) [![Twitter](https://img.shields.io/twitter/url/https/github.com/sumn2u/react-deploy.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsumn2u%2Freact-deploy)
 
-![banner](assests/wysiwyg.png)
+![upload revisions](img/display-revisions.png)
+![show revisions](img/showrevisions.png)
+> Create React App deployment to S3 bucket along with revision update or last revision activate
 
-> A wrapper Component for react-draft-wysiwyg written in Typescript
 
-
-This package require a css file, make sure you use webpack or similar tools for handler this file type.
+This package doesn't build the app, make sure you use webpack or create reat app to make the production build.
 
 ## Table of Contents
 
@@ -28,7 +28,73 @@ yarn add react-deploy
 ```
 
 ## Usage
+> upload.js
+```
+/*
+ * Minimalistic script runner. Usage example:
+ *
+ *     node tools/deploy.js
+ *     Starting 'deploy'...
+ *     Starting 'build'...
+ *     Finished 'build' in 3212ms
+ *     Finished 'deploy' in 582ms
+ */
 
+ function run (task, action, ...args) {
+   const command = process.argv[2]
+   const taskName = command && !command.startsWith('-') ? `${task}:${command}` : task
+   const start = new Date()
+   process.stdout.write(`Starting '${taskName}'...\n`)
+   return Promise.resolve().then(() => action(...args)).then(() => {
+     process.stdout.write(`Finished '${taskName}' after ${new Date().getTime() - start.getTime()}ms\n`)
+   }, err => process.stderr.write(`${err.stack}\n`))
+ }
+
+ process.nextTick(() => require.main.exports())
+ module.exports = (task, action) => run.bind(undefined, task, action)
+```
+> deploy.js
+```
+const s3 = require('react-deploy')
+const task = require('./task')
+
+module.exports = task('upload', () => Promise.resolve()
+  .then(() => {
+    Uploader
+  })
+)
+const Uploader = new Promise((resolve, reject) => {
+  const client = s3.createClient({
+  s3Options: {
+      accessKeyId: 'AWS_KEY',
+      secretAccessKey: 'AWS_SECRET_ACCESSKEY',
+      region: 'REGION',
+      sslEnabled: true,
+      Bucket:'BUCKETNAME'
+    },
+  })
+  const uploader = client.uploadDir({
+    localDir: 'DISTRIBUTIONFOLDER', //dist
+    deleteRemoved: false,
+    s3Params: {
+      Bucket: 'BUCKETNAME'
+    },
+  })
+
+  // on deploy  create a finger print
+    client.createRevision()
+
+  // display revisions
+   client.displayRevisions()
+
+  // activate the new value
+   client.activateRevisions('index:a00a13d')
+
+   uploader.on('error', reject)
+   uploader.on('end', resolve)
+})
+
+```
 
 
 ## Contribute

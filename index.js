@@ -41,29 +41,6 @@ exports.MAX_DELETE_COUNT = MAX_DELETE_COUNT
 exports.MAX_MULTIPART_COUNT = MAX_MULTIPART_COUNT
 exports.MIN_MULTIPART_SIZE = MIN_MULTIPART_SIZE
 
-/*
- * Minimalistic script runner. Usage example:
- *
- *     node tools/deploy.js
- *     Starting 'deploy'...
- *     Starting 'build'...
- *     Finished 'build' in 3212ms
- *     Finished 'deploy' in 582ms
- */
-
-// function run (task, action, ...args) {
-//   const command = process.argv[2]
-//   const taskName = command && !command.startsWith('-') ? `${task}:${command}` : task
-//   const start = new Date()
-//   process.stdout.write(`Starting '${taskName}'...\n`)
-//   return Promise.resolve().then(() => action(...args)).then(() => {
-//     process.stdout.write(`Finished '${taskName}' after ${new Date().getTime() - start.getTime()}ms\n`)
-//   }, err => process.stderr.write(`${err.stack}\n`))
-// }
-//
-// process.nextTick(() => require.main.exports())
-// module.exports = (task, action) => run.bind(undefined, task, action)
-
 function Client (options) {
   options = options || {}
   this.s3 = options.s3Client || new AWS.S3(options.s3Options)
