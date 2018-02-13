@@ -1,6 +1,6 @@
 {
   "name": "react-deploy",
-  "version": "1.0.1",
+  "version": "0.0.4",
   "description": "a deployment script for create react app  to s3",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "deploy",
     "react-deploy",
     "s3",
+    "create-react-app",
     "revisions",
     "activate"
   ],

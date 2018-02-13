@@ -155,12 +155,13 @@ Client.prototype.displayRevisions = function () {
 
 // upload revisions files
 Client.prototype.createRevision = function () {
-  let self = this
-
   generate().then((res) => {
+    let self = this
     let newParams = {
       Bucket: self.s3.config.Bucket,
       CopySource: `${self.s3.config.Bucket}/index.html`,
+      ContentType: 'text/html',
+      ACL: 'public-read-write',
       Metadata: {
         'revision': res.revisionKey,
         'updated': (new Date()).toDateString()
