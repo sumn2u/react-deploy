@@ -118,7 +118,7 @@
                 </div>
 
                 <!--Call to Action-->
-                <a href="#about" class="button" >START DEPLOYING TODAY(alpha Version)</a>
+                <a href="#about" class="button" >START DEPLOYING TODAY</a>
 
                     <!--End Call to Action-->
 
@@ -289,8 +289,8 @@
                       </div>
                       <div class="fakeScreen">
                        <p class="line1">$ npm i -g react-deploy-cli<span class="cursor1">_</span></p>
-                       <p class="line2">initializing react deploy file<span class="cursor2">_</span></p>
-                       <p class="line3">[?] What more would you like? (Press space to select)<span class="cursor3">_</span></p>
+                       <p class="line2">Installing react deploy cli<span class="cursor2">_</span></p>
+                       <!-- <p class="line3">[?] What more would you like? (Press space to select)<span class="cursor3">_</span></p> -->
                        <p class="line4">><span class="cursor4">_</span></p>
                       </div>
                     <!--End of Icon Block-->
@@ -320,8 +320,10 @@
                      <div class="fakeButtons fakeZoom"></div>
                     </div>
                     <div class="fakeScreen">
-                     <p class="line1">$ react-deploy start<span class="cursor1">_</span></p>
-
+                     <p class="line1">$ react-deploy setup<span class="cursor1">_</span></p>
+                     <p class="line2">✓ Deployment file created<span class="cursor2">_</span></p>
+                     <p class="line3">➡  Type help command to proceed further<span class="cursor3">_</span></p>
+                     <p class="line1">$ react-deploy deploy development<span class="cursor1">_</span></p>
                      <p class="line4">><span class="cursor4">_</span></p>
                     </div>
                   <!--End of Icon Block-->
@@ -378,10 +380,16 @@
                        <div class="fakeButtons fakeZoom"></div>
                       </div>
                       <div class="fakeScreen">
-                       <p class="line1">$ react-deploy list<span class="cursor1">_</span></p>
-                       <p class="line2">listing deployed files<span class="cursor2">_</span></p>
-                       <!-- <p class="line3"><span class="cursor3">_</span></p> -->
-                       <p class="line4">><span class="cursor4">_</span></p>
+                       <p class="line1">$ react-deploy list development<span class="cursor1">_</span></p>
+                       <p class="line2">listing deployed files</p>
+                       <p class="line5">
+                       ┌───────────────────┬──────────────────────┐
+                               RevisionKey       │                 Commit Date          
+                       ├───────────────────┼──────────────────────┤
+                                  index:cba170b   │                2018/04/03 21:25:34  
+                       └───────────────────┴──────────────────────┘
+                       </p>
+                       <!-- <p class="line4">><span class="cursor4">_</span></p> -->
                       </div>
                     <!--End of Icon Block-->
 
@@ -410,9 +418,9 @@
                      <div class="fakeButtons fakeZoom"></div>
                     </div>
                     <div class="fakeScreen">
-                     <p class="line1">$ react-deploy activate 6923f26<span class="cursor1">_</span></p>
-                     <p class="line2">Activating file 6923f26<span class="cursor2">_</span></p>
-                     <!-- <p class="line3">[?] What more would you like? (Press space to select)<span class="cursor3">_</span></p> -->
+                     <p class="line1">$ react-deploy activate cba170b development                        <span class="cursor1">_</span></p>
+                     <p class="line2">Activating index file of key cba170b<span class="cursor2">_</span></p>
+                     <p class="line3"> Activated successfully<span class="cursor3">_</span></p>
                      <p class="line4">><span class="cursor4">_</span></p>
                     </div>
                   <!--End of Icon Block-->
