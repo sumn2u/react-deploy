@@ -166,7 +166,7 @@ Client.prototype.createRevision = function () {
         'revision': res.revisionKey,
         'updated': (new Date()).toDateString()
       },
-      MetadataDirective: 'REPLACE',
+      MetadataDirective: 'COPY',
       Key: `index:${res.revisionKey}.html`
     }
 
@@ -211,6 +211,8 @@ Client.prototype.activateRevisions = function (activate) {
         let newParams = {
           Bucket: self.s3.config.Bucket,
           CopySource: `${self.s3.config.Bucket}/${activate}.html`,
+          ContentType: 'text/html',
+          ACL: 'public-read-write',
           Metadata: {
             'revision': actKey,
             'updated': (new Date()).toDateString()

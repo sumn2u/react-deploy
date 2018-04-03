@@ -1,6 +1,6 @@
 {
   "name": "react-deploy",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "description": "a deployment script for create react app  to s3",
   "main": "index.js",
   "scripts": {
