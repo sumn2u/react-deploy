@@ -209,8 +209,8 @@ Client.prototype.activateRevisions = function (activate) {
       if (data.Contents.length) {
         // let file = data.Contents[0]
         let newParams = {
-          Bucket: 'lms-front-dev',
-          CopySource: `lms-front-dev/${activate}.html`,
+          Bucket: self.s3.config.Bucket,
+          CopySource: `${self.s3.config.Bucket}/${activate}.html`,
           Metadata: {
             'revision': actKey,
             'updated': (new Date()).toDateString()
