@@ -332,7 +332,7 @@ Client.prototype.activateRevisions = function (activate) {
   })
 // now see the promise
   revisions.then((revision) => {
-    console.log(`Revision activted successfully`)
+    console.log(`Revision activated successfully`)
   //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
   //  if(revision == actKey){
   //    //@TODO save and activate
