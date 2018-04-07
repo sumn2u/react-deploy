@@ -1,8 +1,8 @@
 # react-deploy
 
-[![GitHub issues](https://img.shields.io/github/issues/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/issues) [![GitHub forks](https://img.shields.io/github/forks/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/network) [![GitHub stars](https://img.shields.io/github/stars/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/stargazers) [![GitHub license](https://img.shields.io/github/license/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/blob/master/LICENSE)[![Build Status](https://travis-ci.org/sumn2u/react-deploy.svg?branch=master)](https://travis-ci.org/sumn2u/react-deploy) [![Twitter](https://img.shields.io/twitter/url/https/github.com/sumn2u/react-deploy.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsumn2u%2Freact-deploy)
+[![GitHub issues](https://img.shields.io/github/issues/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/issues) [![GitHub forks](https://img.shields.io/github/forks/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/network) [![GitHub stars](https://img.shields.io/github/stars/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/stargazers) [![GitHub license](https://img.shields.io/github/license/sumn2u/react-deploy.svg)](https://github.com/sumn2u/react-deploy/blob/master/LICENSE) [![Build Status](https://travis-ci.org/sumn2u/react-deploy.svg?branch=master)](https://travis-ci.org/sumn2u/react-deploy) [![Twitter](https://img.shields.io/twitter/url/https/github.com/sumn2u/react-deploy.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsumn2u%2Freact-deploy)
 
-> Create React App deployment to S3 bucket along with revision update or last revision activate
+> Create React App deployment to S3 bucket along with app versioning and activation.
 
 ![upload revisions](img/display-revisions.png)
 
@@ -11,7 +11,7 @@
 ![show revisions](img/showrevisions.png)
 
 
-This package doesn't build the app, make sure you use webpack or create reat app to make the production build.
+This package doesn't build the app, instead use webpack or create-react-app to build the application.
 
 ## Table of Contents
 
