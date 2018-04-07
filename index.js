@@ -182,10 +182,104 @@ Client.prototype.createRevision = function () {
     })
 
     uploadFile.then((rest) => {
-      console.log(`Revision created successfuly `)
+      console.log(`Revision created successfully `)
     })
   })
 }
+
+//create revision for service worker
+Client.prototype.serviceWorker = function () {
+  generate().then((res) => {
+    let self = this
+    let newParams = {
+      Bucket: self.s3.config.Bucket,
+      CopySource: `${self.s3.config.Bucket}/service-worker.js`,
+      ContentType: 'application/javascript',
+      ACL: 'public-read-write',
+      Metadata: {
+        'revision': res.revisionKey,
+        'updated': (new Date()).toDateString()
+      },
+      MetadataDirective: 'COPY',
+      Key: `service-worker:${res.revisionKey}.js`
+    }
+
+    // console.log(newParams,'newParams');
+    const uploadFile = new Promise((resolve, reject) => {
+      self.s3.copyObject(newParams, (copyErr, copyData) => {
+        if (copyErr) {
+          reject(copyErr)
+        } else {
+          resolve(copyData)
+        }
+      })
+    })
+
+    uploadFile.then((rest) => {
+      console.log(`Revision for service worker created successfully `)
+    })
+  })
+}
+
+// activate revision
+Client.prototype.activateServiceWorkerRevisions = function (activate) {
+  let self = this
+  let params = {
+    Bucket: self.s3.config.Bucket,
+    Prefix: `${activate}.js`,
+    MaxKeys: 1
+  }
+
+  if (!activate) return console.log('Please provide activation key')
+  let actKey = activate.replace(/service-worker:/g, '')
+
+  console.log(`Activating service-worker file of key ${actKey}`)
+
+  let revisions = new RSVP.Promise((resolve, reject) => {
+    return self.s3.listObjects(params, (err, data) => {
+      if (err) {
+        reject(err)
+      }
+      // needs to get files from s3
+      if (data.Contents.length) {
+        // let file = data.Contents[0]
+        let newParams = {
+          Bucket: self.s3.config.Bucket,
+          CopySource: `${self.s3.config.Bucket}/${activate}.js`,
+          ContentType: 'application/javascript',
+          ACL: 'public-read-write',
+          Metadata: {
+            'revision': actKey,
+            'updated': (new Date()).toDateString()
+          },
+          MetadataDirective: 'REPLACE',
+          Key: 'service-worker.js'
+        }
+
+        self.s3.copyObject(newParams, (copyErr, copyData) => {
+          if (copyErr) {
+          //  console.log(copyErr)
+            reject(copyErr)
+          } else {
+                // console.log('Copied: ', params.Key)
+            resolve(copyData)
+          }
+        })
+      }
+    })
+  })
+// now see the promise
+  revisions.then((revision) => {
+    console.log(`Revision activated successfully`)
+  //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
+  //  if(revision == actKey){
+  //    //@TODO save and activate
+  //  }else{
+  //    console.log(`cannot find file of key ${actKey}`)
+  //  }
+  })
+}
+
 // activate revision
 Client.prototype.activateRevisions = function (activate) {
   let self = this
@@ -208,6 +302,9 @@ Client.prototype.activateRevisions = function (activate) {
       // needs to get files from s3
       if (data.Contents.length) {
         // let file = data.Contents[0]
+        // console.log('====================================');
+        // console.log("data contains length");
+        // console.log('====================================');
         let newParams = {
           Bucket: self.s3.config.Bucket,
           CopySource: `${self.s3.config.Bucket}/${activate}.html`,
@@ -235,7 +332,7 @@ Client.prototype.activateRevisions = function (activate) {
   })
 // now see the promise
   revisions.then((revision) => {
-    console.log(`Revison activted successfuly`)
+    console.log(`Revision activted successfully`)
   //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
   //  if(revision == actKey){
   //    //@TODO save and activate

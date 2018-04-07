@@ -124,7 +124,7 @@ a:hover, #header.nav-solid nav a:hover {
 /* Banner Background and Text Colors */
 
 #banner {
-    background: url("../images/banner-images/rocket-blast.png") no-repeat right 100px center;
+    background: url("../images/banner-images/rocket-blast.png") no-repeat right 200px center;
     /*background-size:cover;*/
     background-size: 600px;
 

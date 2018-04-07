@@ -1,6 +1,6 @@
 {
   "name": "react-deploy",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "description": "a deployment script for create react app  to s3",
   "main": "index.js",
   "scripts": {
@@ -25,8 +25,11 @@
     "url": "https://github.com/sumn2u/react-deploy/issues"
   },
   "homepage": "https://github.com/sumn2u/react-deploy#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "aws-sdk": "^2.193.0",
+    "cli-table2": "^0.2.0",
+    "core-object": "^3.1.5",
     "fd-slicer": "~1.0.0",
     "findit2": "~2.2.3",
     "fs": "0.0.1-security",
@@ -34,6 +37,7 @@
     "graceful-fs": "~4.1.4",
     "mime": "~1.2.11",
     "mkdirp": "~0.5.0",
+    "moment": "^2.22.0",
     "pend": "~1.2.0",
     "rimraf": "~2.2.8",
     "rsvp": "^3.5.0",
