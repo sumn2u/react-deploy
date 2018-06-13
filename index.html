@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <!--Page Title-->
+    <title>React Deploy</title>
+
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="react, react-deploy, s3">
+    <meta name="description" content="React Deploy is a deployment plugin that automates deployment of react applications to Amazon S3.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
+
+    <!-- Main CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Namari Color CSS -->
+    <link rel="stylesheet" href="css/namari-color.css">
+
+    <!--Icon Fonts - Font Awesome Icons-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Animate CSS-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+
+    <!--Google Webfonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status" class="la-ball-triangle-path">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!--End of Preloader-->
+
+<div class="page-border" data-wow-duration="0.7s" data-wow-delay="0.2s">
+    <div class="top-border wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;"></div>
+    <div class="right-border wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;"></div>
+    <div class="bottom-border wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"></div>
+    <div class="left-border wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"></div>
+</div>
+
+<div id="wrapper">
+
+    <header id="banner" class="scrollto clearfix" >
+        <div id="header" class="nav-collapse">
+            <div class="row clearfix">
+                <div class="col-1">
+
+                    <!--Logo-->
+                    <div id="logo">
+
+                        <!--Logo that is shown on the banner-->
+                        <h4> <b>React Deploy </b></h4>
+                        <!-- <img src="images/logo.svg" id="banner-logo" alt="Landing Page"/> -->
+                        <!--End of Banner Logo-->
+
+                        <!--The Logo that is shown on the sticky Navigation Bar-->
+                        <!-- <img src="images/logo-2.svg" id="navigation-logo" alt="Landing Page"/> -->
+                        <!--End of Navigation Logo-->
+
+                    </div>
+                    <!--End of Logo-->
+
+
+                    <!--Main Navigation-->
+                    <nav id="nav-main">
+                        <ul>
+                            <li>
+                                <a href="#banner">Home</a>
+                            </li>
+                            <li>
+                                <a href="#about">Docs</a>
+                            </li>
+                            <!-- <li>
+                                <a href="#gallery">Gallery</a>
+                            </li> -->
+                            <!-- <li>
+                                <a href="#services">Motivation</a>
+                            </li> -->
+
+                            <li>
+                                <a href="#clients">Tools</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!--End of Main Navigation-->
+
+                    <div id="nav-trigger"><span></span></div>
+                    <nav id="nav-mobile"></nav>
+
+                </div>
+            </div>
+        </div><!--End of Header-->
+
+        <!--Banner Content-->
+        <div id="banner-content" class="row clearfix">
+
+            <div class="col-38">
+
+                <div class="section-heading">
+                    <h1>WHERE EVERY ASSESTS MATTERS</h1>
+                    <h2>
+                        React Deploy is a deployment plugin that automates deployment of react applications to Amazon S3. <br/> <br/>
+
+                      Just as any <b> create-react-app</b> is served with <b> npm start </b> and built with <b> npm build</b>, any app using React Deploy is deployed with the same command :<b>react deploy</b>.
+                    </h2>
+                </div>
+
+                <!--Call to Action-->
+                <a href="#about" class="button" >START DEPLOYING TODAY</a>
+
+                    <!--End Call to Action-->
+
+            </div>
+
+        </div><!--End of Row-->
+    </header>
+
+    <!--Main Content Area-->
+    <main id="content">
+
+        <!--Introduction-->
+        <section id="about" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+                <div class="col-3">
+                    <div class="section-heading">
+                        <h3>DOCS</h3>
+                        <h2 class="section-title">Simple, flexible deployment for your react app  </h2>
+                        <p class="section-subtitle"> <b>React Deploy </b> CLI manages deployment of code and assests of your react app to S3 bucket and maintains different versions.
+
+                                <br/>
+                               <!-- <ul>
+                                   <li>
+                                        gzip your assets before uploading them to s3 bucket.
+                                   </li>
+                                   <li>
+                                        Uploading your codes and assests to s3 bucket.
+                                   </li>
+                                   <li>
+                                        Maintainig different versions of your app in s3 bucket by using unique key generated by github commit.
+                                   </li>
+                                   <li>
+                                       Listing different versions of application deployed.
+                                   </li>
+                                   <li>
+                                        Activating different versions of your app by the fingerprint maintained by each versions.
+                                   </li>
+
+                                   <li>
+                                        Clearing cache maintained by <b>service-worker.js</b> file in cloudfront.
+                                   </li>
+
+
+
+                               </ul> -->
+
+                             </p>
+                    </div>
+
+                </div>
+
+                <div class="col-2-3">
+
+                    <!--Icon Block-->
+                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.1s">
+                        <!--Icon-->
+                        <div class="icon">
+                            <i class="fa fa-cogs fa-2x"></i>
+                        </div>
+                        <!--Icon Block Description-->
+                        <div class="icon-block-description" >
+                            <a href="#installation"> <h4>Installation</h4> </a>
+                            <p>To install <b>react-deploy</b> use the following command ... </p>
+                        </div>
+                    </div>
+                    <!--End of Icon Block-->
+
+                    <!--Icon Block-->
+                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.3s">
+                        <!--Icon-->
+                        <div class="icon">
+                            <i class="fa fa-rocket fa-2x"></i>
+                        </div>
+                        <!--Icon Block Description-->
+                        <div class="icon-block-description">
+                              <a href="#deployment"> <h4>Deployment</h4> </a>
+                            <p>build and deploy your files to the <b> S3 </b> bucket by simple command .....</p>
+                        </div>
+                    </div>
+                    <!--End of Icon Block-->
+
+                    <!--Icon Block-->
+                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
+                        <!--Icon-->
+                        <div class="icon">
+                            <i class="fa fa-list fa-2x"></i>
+                        </div>
+                        <!--Icon Block Description-->
+                        <div class="icon-block-description">
+                              <a href="#listing"> <h4>Listing</h4> </a>
+                            <p> List the different versions of files you deployed the file by simple list command</p>
+                        </div>
+                    </div>
+                    <!--End of Icon Block-->
+
+                    <!--Icon Block-->
+                    <div class="col-2 icon-block icon-top wow fadeInUp" data-wow-delay="0.5s">
+                        <!--Icon-->
+                        <div class="icon">
+                            <i class="fa fa-bolt fa-2x"></i>
+                        </div>
+                        <!--Icon Block Description-->
+                        <div class="icon-block-description">
+                              <a href="#activation"> <h4>Activation</h4> </a>
+                            <p> Activate the files which you deployed by < <b>1</b> minutes</p>
+                        </div>
+                    </div>
+                    <!--End of Icon Block-->
+
+                </div>
+                <div id="mylightbox" class="featherlight fixwidth">
+                  <div class="featherlight-content-drag">
+                    <div class="lightbox" id="fl2">
+                      <div class=fakeMenu>
+                         <div class="fakeButtons fakeClose"></div>
+                         <div class="fakeButtons fakeMinimize"></div>
+                         <div class="fakeButtons fakeZoom"></div>
+                        </div>
+                        <div class="fakeScreen">
+                         <p class="line1">$ npm i react-deploy<span class="cursor1">_</span></p>
+                         <p class="line2">initializing react deploy file<span class="cursor2">_</span></p>
+                         <p class="line3">[?] What more would you like? (Press space to select)<span class="cursor3">_</span></p>
+                         <p class="line4">><span class="cursor4">_</span></p>
+                        </div>
+                     </div>
+
+                  </div></div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+        <!--End of Introduction-->
+
+
+        <section id="installation" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+                <div class="col-3">
+                    <div class="section-heading">
+                        <!-- <h3>DOCS</h3> -->
+                        <h2 class="section-title"> Installation </h2>
+                        <p class="section-subtitle"> <b>React Deploy </b> CLI  can be globally or locally installed by using <b>npm i -g react-deploy </b> command
+
+                                <br/>
+
+                             </p>
+                    </div>
+
+                </div>
+
+                <div class="col-2-3">
+
+                    <!--Icon Block-->
+
+                    <div class=fakeMenu>
+                       <div class="fakeButtons fakeClose"></div>
+                       <div class="fakeButtons fakeMinimize"></div>
+                       <div class="fakeButtons fakeZoom"></div>
+                      </div>
+                      <div class="fakeScreen">
+                       <p class="line1">$ npm i -g react-deploy-cli<span class="cursor1">_</span></p>
+                       <p class="line2">Installing react deploy cli<span class="cursor2">_</span></p>
+                       <!-- <p class="line3">[?] What more would you like? (Press space to select)<span class="cursor3">_</span></p> -->
+                       <p class="line4">><span class="cursor4">_</span></p>
+                      </div>
+                    <!--End of Icon Block-->
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <section id="deployment" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+                <div class="col-4">
+
+                  <!--Icon Block-->
+
+                  <div class=fakeMenu>
+                     <div class="fakeButtons fakeClose"></div>
+                     <div class="fakeButtons fakeMinimize"></div>
+                     <div class="fakeButtons fakeZoom"></div>
+                    </div>
+                    <div class="fakeScreen">
+                     <p class="line1">$ react-deploy setup<span class="cursor1">_</span></p>
+                     <p class="line2">✓ Deployment file created<span class="cursor2">_</span></p>
+                     <p class="line3">➡  Type help command to proceed further<span class="cursor3">_</span></p>
+                     <p class="line1">$ react-deploy deploy development<span class="cursor1">_</span></p>
+                     <p class="line4">><span class="cursor4">_</span></p>
+                    </div>
+                  <!--End of Icon Block-->
+
+
+                </div>
+
+                <div class="col-4-5">
+
+                  <div class="section-heading">
+                      <!-- <h3>DOCS</h3> -->
+                      <h2 class="section-title"> Deployment </h2>
+                      <p class="section-subtitle"> <b>React Deploy </b> CLI manages deployment of code and assests of your react app to S3 bucket and maintains different versions.
+
+                              <br/>
+
+                           </p>
+                  </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+        <section id="listing" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+                <div class="col-3">
+                    <div class="section-heading">
+                        <!-- <h3>DOCS</h3> -->
+                        <h2 class="section-title"> Listing </h2>
+                        <p class="section-subtitle">We can get the recent list of eployed file using <b> list </b> command.
+
+                                <br/>
+
+                             </p>
+                    </div>
+
+                </div>
+
+                <div class="col-2-3">
+
+                    <!--Icon Block-->
+
+                    <div class=fakeMenu>
+                       <div class="fakeButtons fakeClose"></div>
+                       <div class="fakeButtons fakeMinimize"></div>
+                       <div class="fakeButtons fakeZoom"></div>
+                      </div>
+                      <div class="fakeScreen">
+                       <p class="line1">$ react-deploy list development<span class="cursor1">_</span></p>
+                       <p class="line2">listing deployed files</p>
+                       <p class="line5">
+                       ┌───────────────────┬──────────────────────┐
+                               RevisionKey       │                 Commit Date          
+                       ├───────────────────┼──────────────────────┤
+                                  index:cba170b   │                2018/04/03 21:25:34  
+                       └───────────────────┴──────────────────────┘
+                       </p>
+                       <!-- <p class="line4">><span class="cursor4">_</span></p> -->
+                      </div>
+                    <!--End of Icon Block-->
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <section id="activation" class="introduction scrollto">
+
+            <div class="row clearfix">
+
+                <div class="col-4">
+
+                  <!--Icon Block-->
+
+                  <div class=fakeMenu>
+                     <div class="fakeButtons fakeClose"></div>
+                     <div class="fakeButtons fakeMinimize"></div>
+                     <div class="fakeButtons fakeZoom"></div>
+                    </div>
+                    <div class="fakeScreen">
+                     <p class="line1">$ react-deploy activate cba170b development                        <span class="cursor1">_</span></p>
+                     <p class="line2">Activating index file of key cba170b<span class="cursor2">_</span></p>
+                     <p class="line3"> Activated successfully<span class="cursor3">_</span></p>
+                     <p class="line4">><span class="cursor4">_</span></p>
+                    </div>
+                  <!--End of Icon Block-->
+
+
+                </div>
+
+                <div class="col-4-5">
+
+                  <div class="section-heading">
+                      <!-- <h3>DOCS</h3> -->
+                      <h2 class="section-title"> Activation </h2>
+                      <p class="section-subtitle">  Activation of file can be done by using simply <b> activate:key</b>. Here is key is unique identifer generated while deploying app to s3.
+
+                              <br/>
+
+                           </p>
+                  </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!--End of Gallery-->
+
+
+        <!--Content Section-->
+
+
+        <!--Testimonials-->
+        <!--End of Testimonials-->
+
+        <!--Clients-->
+        <section id="clients" class="scrollto clearfix">
+            <div class="row clearfix">
+
+                <div class="col-3">
+
+                    <div class="section-heading">
+                        <h3>MORE </h3>
+                        <h2 class="section-title">Tools and libaries from us </h2>
+                        <p class="section-subtitle">Using the right libaries and tools boostes your development process and results great output</p>
+                    </div>
+
+                </div>
+
+                <div class="col-2-3">
+
+                    <a href="https://www.npmjs.com/package/react-typescript-pdf-reader" target="_blank" class="col-3">
+                        <p>react-typescript-pdf-reader</p>
+                        <!-- <img src="images/company-images/npm.png" alt="Company"/> -->
+                        <div class="client-overlay"><span>react-typescript-pdf-reader</span></div>
+                    </a>
+                    <a href="https://www.npmjs.com/package/ember-semantic-ui-dropdown" target="_blank" class="col-3">
+                        <p> ember-semantic-ui-dropdown</p>
+                        <!-- <img src="images/company-images/keras.png" alt="Company"/> -->
+                        <div class="client-overlay"><span>ember-semantic-ui-dropdown</span></div>
+                    </a>
+                    <a href="https://www.npmjs.com/package/ember-cli-notify" target="_blank" class="col-3">
+                        <p>ember-cli-notify</p>
+                        <!-- <img src="images/company-images/torch.png" alt="Company"/> -->
+                        <div class="client-overlay"><span>ember-cli-notify</span></div>
+                    </a>
+                    <a href="https://www.npmjs.com/package/react-wysiwyg-typescript" target="_blank" class="col-3">
+                        <p> react-wysiwyg-typescript</p>
+                        <!-- <img src="images/company-images/react-wysiwyg-typescript.png" alt="Company"/> -->
+                        <div class="client-overlay"><span>react-wysiwyg-typescript</span></div>
+                    </a>
+                    <a href="https://www.npmjs.com/package/github-web" target="_blank" class="col-3">
+                        <p> github-web</p>
+                        <!-- <img src="images/company-images/react-wysiwyg-typescript.png" alt="Company"/> -->
+                        <div class="client-overlay"><span>github-web</span></div>
+                    </a>
+                    <!-- <a href="#" class="col-3">
+                        <img src="images/company-images/company-logo5.png" alt="Company"/>
+                        <div class="client-overlay"><span>Goat</span></div>
+                    </a>
+                    <a href="#" class="col-3">
+                        <img src="images/company-images/company-logo6.png" alt="Company"/>
+                        <div class="client-overlay"><span>Justice</span></div>
+                    </a>
+                    <a href="#" class="col-3">
+                        <img src="images/company-images/company-logo7.png" alt="Company"/>
+                        <div class="client-overlay"><span>Ball</span></div>
+                    </a>
+                    <a href="#" class="col-3">
+                        <img src="images/company-images/company-logo8.png" alt="Company"/>
+                        <div class="client-overlay"><span>Cold</span></div>
+                    </a> -->
+
+                    <!-- <a href="#" class="col-3">
+                        <img src="images/company-images/company-logo9.png" alt="Company"/>
+                        <div class="client-overlay"><span>Cold</span></div>
+                    </a> -->
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--End of Clients-->
+
+        <!--Pricing Tables-->
+        <!--End of Pricing Tables-->
+
+    </main>
+    <!--End Main Content Area-->
+
+
+    <!--Footer-->
+    <footer id="landing-footer" class="clearfix">
+        <div class="row clearfix">
+
+            <p id="copyright" class="col-2">Made with love by <a href="https://www.restrochief.com"  target="_blank" >Human Assist AI</a></p>
+
+
+        </div>
+    </footer>
+    <!--End of Footer-->
+
+</div>
+
+<!-- Include JavaScript resources -->
+<script src="js/jquery.1.8.3.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/featherlight.min.js"></script>
+<script src="js/featherlight.gallery.min.js"></script>
+<script src="js/jquery.enllax.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.stickyNavbar.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/images-loaded.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="js/site.js"></script>
+
+
+</body>
+</html>
