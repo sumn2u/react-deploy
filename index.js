@@ -130,7 +130,6 @@ Client.prototype.displayRevisions = function () {
 
   let revisions = new RSVP.Promise((resolve, reject) => {
     let s3revisionL = []
-    // console.log(s3, 's3');
 
     return self.s3.listObjects(params, (err, data) => {
       if (err) {
@@ -139,7 +138,6 @@ Client.prototype.displayRevisions = function () {
       // needs to get files from s3
       data.Contents.forEach((obj) => {
         s3revisionL.push({revisionKey: obj.Key.replace(/.html/g, ''), revisionDate: obj.LastModified})
-        // console.log(obj.Key, obj.LastModified, 'this is s3')
       })
       resolve(s3revisionL)
     })
@@ -150,8 +148,6 @@ Client.prototype.displayRevisions = function () {
     table.display()
   })
 }
-
-// activate revisions
 
 // upload revisions files
 Client.prototype.createRevision = function () {
@@ -170,7 +166,6 @@ Client.prototype.createRevision = function () {
       Key: `index:${res.revisionKey}.html`
     }
 
-    // console.log(newParams,'newParams');
     const uploadFile = new Promise((resolve, reject) => {
       self.s3.copyObject(newParams, (copyErr, copyData) => {
         if (copyErr) {
@@ -204,7 +199,6 @@ Client.prototype.serviceWorker = function () {
       Key: `service-worker:${res.revisionKey}.js`
     }
 
-    // console.log(newParams,'newParams');
     const uploadFile = new Promise((resolve, reject) => {
       self.s3.copyObject(newParams, (copyErr, copyData) => {
         if (copyErr) {
@@ -242,7 +236,6 @@ Client.prototype.activateServiceWorkerRevisions = function (activate) {
       }
       // needs to get files from s3
       if (data.Contents.length) {
-        // let file = data.Contents[0]
         let newParams = {
           Bucket: self.s3.config.Bucket,
           CopySource: `${self.s3.config.Bucket}/${activate}.js`,
@@ -258,10 +251,8 @@ Client.prototype.activateServiceWorkerRevisions = function (activate) {
 
         self.s3.copyObject(newParams, (copyErr, copyData) => {
           if (copyErr) {
-          //  console.log(copyErr)
             reject(copyErr)
           } else {
-                // console.log('Copied: ', params.Key)
             resolve(copyData)
           }
         })
@@ -271,12 +262,6 @@ Client.prototype.activateServiceWorkerRevisions = function (activate) {
 // now see the promise
   revisions.then((revision) => {
     console.log(`Revision activated successfully`)
-  //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
-  //  if(revision == actKey){
-  //    //@TODO save and activate
-  //  }else{
-  //    console.log(`cannot find file of key ${actKey}`)
-  //  }
   })
 }
 
@@ -301,10 +286,6 @@ Client.prototype.activateRevisions = function (activate) {
       }
       // needs to get files from s3
       if (data.Contents.length) {
-        // let file = data.Contents[0]
-        // console.log('====================================');
-        // console.log("data contains length");
-        // console.log('====================================');
         let newParams = {
           Bucket: self.s3.config.Bucket,
           CopySource: `${self.s3.config.Bucket}/${activate}.html`,
@@ -320,10 +301,8 @@ Client.prototype.activateRevisions = function (activate) {
 
         self.s3.copyObject(newParams, (copyErr, copyData) => {
           if (copyErr) {
-          //  console.log(copyErr)
             reject(copyErr)
           } else {
-                // console.log('Copied: ', params.Key)
             resolve(copyData)
           }
         })
@@ -332,13 +311,7 @@ Client.prototype.activateRevisions = function (activate) {
   })
 // now see the promise
   revisions.then((revision) => {
-    console.log(`Revision activated successfully`)
-  //  let revisionKey  = revision.revisionKey.replace(/index:/g,'').replace(/.html:/g,'')
-  //  if(revision == actKey){
-  //    //@TODO save and activate
-  //  }else{
-  //    console.log(`cannot find file of key ${actKey}`)
-  //  }
+    console.log(`${revision} -revision activated successfully`)
   })
 }
 Client.prototype.uploadFile = function (params) {
